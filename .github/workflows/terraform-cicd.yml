@@ -1,0 +1,35 @@
+name: Terraform Deploy
+
+on:
+  #push:
+    #branches:
+      #- main
+  workflow_dispatch: Manual trigger only     
+
+  jobs:
+    terraform:
+      runs-on: ubuntu-latest
+      env:
+        AWS_Access_Key_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_Secret_Access_Key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_Region: us-east-1
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+        
+        - name: Setup Terraform
+          uses: hasicorp/setup-terraform@v3
+
+        - name: Terraform init
+          run: terraform init
+
+        - name: Terraform Validate
+          run: terraform validate
+
+        - name: Terraform Plan
+          run: terraform plan -out-tfplan
+
+        - name: Terraform apply
+          run: terrform apply -auto-approve tfplan    
+
+
