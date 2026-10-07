@@ -103,7 +103,7 @@
 
 #       - name: Terraform Apply
 #         run: terraform apply -auto-approve tfplan
-
+        name: Terraform Deploy
         on:
           push:
             branches:
