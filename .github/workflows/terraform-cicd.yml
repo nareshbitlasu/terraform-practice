@@ -125,5 +125,5 @@
             - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v4
               with:
-              role-to-assume: arn:aws:iam::584545442808:role/test_admin
+              role-to-assume: arn:aws:iam::681117450266:role/admin-role
               aws-region: us-east-1
