@@ -105,9 +105,8 @@
 #         run: terraform apply -auto-approve tfplan
         name: Terraform Deploy
         on:
-          push:
-            branches:
-          - main
+            push:
+            branches: - main
 
       # Required for GitHub OIDC
         permissions:
@@ -125,5 +124,5 @@
         - name: Configure AWS Credentials
            uses: aws-actions/configure-aws-credentials@v4
            with:
-             role-to-assume: arn:aws:iam::530085489064:role/admin-role
+             role-to-assume: arn:aws:iam::584545442808:role/test_admin
              aws-region: us-east-1
