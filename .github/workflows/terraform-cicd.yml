@@ -121,7 +121,7 @@
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
-
+# credentials for AWS
             - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v4
               with:
