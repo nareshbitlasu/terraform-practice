@@ -6,8 +6,8 @@ name: Terraform Deploy
 permissions:
   contents: read
   id-token: write
-  jobs:
-    deploy:
+  jobs: 
+  terraform:
     runs-on: ubuntu-latest
     steps:
        - name: Checkout Code
@@ -16,4 +16,17 @@ permissions:
          name: Configure AWS Credentials
          role-to-assume: arn:aws:iam::681117450266:role/admin-role
          uses: aws-actions/configure-aws-credentials@v4
-         with: null
+       - name: Setup Terraform
+         uses: hashicorp/setup-terraform@v3
+
+       - name: Terraform Init
+         run: terraform init
+
+       - name: Terraform Validate
+         run: terraform validate
+
+       - name: Terraform Plan
+         run: terraform plan -out=tfplan
+
+       - name: Terraform Apply
+         run: terraform apply -auto-approve tfplan
