@@ -103,12 +103,13 @@
 
 #       - name: Terraform Apply
 #         run: terraform apply -auto-approve tfplan
+
         name: Terraform Deploy
         on:
             push:
             branches: [main]
 
-      # Required for GitHub OIDC
+         # Required for GitHub OIDC
         permissions:
            id-token: write
            contents: read
