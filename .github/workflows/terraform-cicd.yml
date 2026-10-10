@@ -106,7 +106,7 @@
         name: Terraform Deploy
         on:
             push:
-            branches: - main
+            branches: [main]
 
       # Required for GitHub OIDC
         permissions:
