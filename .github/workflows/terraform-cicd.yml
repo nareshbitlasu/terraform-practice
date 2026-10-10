@@ -104,26 +104,26 @@
 #       - name: Terraform Apply
 #         run: terraform apply -auto-approve tfplan
 
-        name: Terraform Deploy
-        on:
-            push:
-            branches: [main]
+  name: Terraform Deploy
+  on:
+    push:
+      branches: [main]
 
-         # Required for GitHub OIDC
-        permissions:
-           id-token: write
-           contents: read
+ # Required for GitHub OIDC
+    permissions:
+      id-token: write
+      contents: read
 
-           jobs:
-            deploy:
-            runs-on: ubuntu-latest
+      jobs:
+        deploy:
+        runs-on: ubuntu-latest
 
-            steps:
-                - name: Checkout Code
-                  uses: actions/checkout@v4
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
 
-        - name: Configure AWS Credentials
-           uses: aws-actions/configure-aws-credentials@v4
-           with:
-             role-to-assume: arn:aws:iam::584545442808:role/test_admin
-             aws-region: us-east-1
+            - name: Configure AWS Credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+              role-to-assume: arn:aws:iam::584545442808:role/test_admin
+              aws-region: us-east-1
