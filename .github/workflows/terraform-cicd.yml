@@ -7,9 +7,9 @@ permissions:
   contents: read
   id-token: write
   jobs: 
-  terraform:
-    runs-on: ubuntu-latest
-    steps:
+    terraform:
+     runs-on: ubuntu-latest
+     steps:
        - name: Checkout Code
          uses: actions/checkout@v4
        - aws-region: us-east-1
